@@ -19,14 +19,7 @@ If you want to solve a double matrix (augmented matrix), the program will prompt
 If a zero is encountered on the diagonal of the matrix, the program will ask if you want to swap rows. If you choose to swap rows, the program will perform the swap and display the swapped matrix.
 The program uses a custom MatrixDisplayer module that prints matrices in a more visually appealing way.
 
-## Credits
-The MatrixDisplayer module was written by Valerian Coelho.
-This program was developed by Valerian Coelho. It uses the MatrixDisplayer Library, which were developed by the same author.
-
-## License
-This program is licensed under the MIT License.
-
-## Example
+## Examples
 ### Single Matrix
 **Input:**
 ```
@@ -192,3 +185,122 @@ A = │ 0  0  1  0  0  0 │
     │ 0  0  0  0  0  1 │
     └                  ┘
 ```
+---
+### Double Matrix (Augmented Matrix)
+**Input:**
+```
+Enter the number of matrices : 2
+Enter the number of rows in the first matrix : 4
+Enter the number of cols in the first matrix : 4
+Enter the number of rows in the second matrix : 4
+Enter the number of cols in the second matrix : 4
+Enter the element in the First Matrix :
+49
+87
+3
+22
+91
+16
+70
+55
+34
+11
+98
+27
+42
+61
+76
+8
+Enter the element in the Second Matrix :
+77
+46
+20
+12
+99
+92
+50
+5
+80
+51
+62
+9
+68
+89
+39
+98
+```
+**Output:**
+```
+Solution :-
+            ┌                                 ┐
+            │ 49  87  3   22 │ 77  46  20  12 │
+Let [A:I] = │ 91  16  70  55 │ 99  92  50  5  │
+            │ 34  11  98  27 │ 80  51  62  9  │
+            │ 42  61  76  8  │ 68  89  39  98 │
+            └                                 ┘
+
+By Elementary Transformation Method :-
+
+Iteration 1: Set R1 and Leading Row (LR1)
+┌                                 ┐
+│ 49  87  3   22 │ 77  46  20  12 │
+│ 91  16  70  55 │ 99  92  50  5  │
+│ 34  11  98  27 │ 80  51  62  9  │
+│ 42  61  76  8  │ 68  89  39  98 │
+└                                 ┘
+R1 -> LR1 ÷ 49
+R2 -> R2 - LR1 (91 ÷ 49)
+R3 -> R3 - LR1 (34 ÷ 49)
+R4 -> R4 - LR1 (42 ÷ 49)
+
+Iteration 2: Set R2 and Leading Row (LR2)
+┌                                                                   ┐
+│ 1   87/49     3/49      22/49  │  11/7   46/49   20/49     12/49  │
+│ 0  -1019/7    451/7     99/7   │ -44     46/7    90/7     -121/7  │
+│ 0  -2419/49   4700/49   575/49 │  186/7  935/49  2358/49   33/49  │
+│ 0  -95/7      514/7    -76/7   │  2      347/7   153/7     614/7  │
+└                                                                   ┘
+R1 -> R1 - LR2 (87/49 ÷ -1019/7)
+R2 -> LR2 ÷ -1019/7
+R3 -> R3 - LR2 (-2419/49 ÷ -1019/7)
+R4 -> R4 - LR2 (-95/7 ÷ -1019/7)
+
+Iteration 3: Set R3 and Leading Row (LR3)
+┌                                                                                        ┐
+│ 1  0   6042/7133     4433/7133   │ 7381/7133     7268/7133     4030/7133    243/7133   │
+│ 0  1  -451/1019     -99/1019     │ 308/1019     -46/1019      -90/1019      121/1019   │
+│ 0  0   528333/7133   49492/7133  │ 295970/7133   120213/7133   312156/7133  46618/7133 │
+│ 0  0   68703/1019   -12407/1019  │ 6218/1019     49889/1019    21051/1019   91023/1019 │
+└                                                                                        ┘
+R1 -> R1 - LR3 (6042/7133 ÷ 528333/7133)
+R2 -> R2 - LR3 (-451/1019 ÷ 528333/7133)
+R3 -> LR3 ÷ 528333/7133
+R4 -> R4 - LR3 (68703/1019 ÷ 528333/7133)
+
+Iteration 4: Set R4 and Leading Row (LR4)
+┌                                                                                        ┐
+│ 1  0  0   5025/9269       │  5193/9269        7658/9269     2/31        -29/713        │
+│ 0  1  0  -29425/528333    │  290686/528333    515/9269      102/589      6413/40641    │
+│ 0  0  1   49492/528333    │  295970/528333    2109/9269     348/589      3586/40641    │
+│ 0  0  0  -3256551/176111  │ -5576988/176111   311606/9269  -11295/589    1129505/13547 │
+└                                                                                        ┘
+R1 -> R1 - LR4 (5025/9269 ÷ -3256551/176111)
+R2 -> R2 - LR4 (-29425/528333 ÷ -3256551/176111)
+R3 -> R3 - LR4 (49492/528333 ÷ -3256551/176111)
+R4 -> LR4 ÷ -3256551/176111
+
+Matrix in Echelon Form :-
+        ┌                                                                                       ┐
+        │ 1  0  0  0 │ -133217/361839     1966744/1085517   -60029/120613     2609314/1085517   │
+[A:I] = │ 0  1  0  0 │  2102342/3256551  -446395/9769653     250681/1085517  -911746/9769653    │
+        │ 0  0  1  0 │  1301878/3256551   3886741/9769653    535904/1085517   4988518/9769653   │
+        │ 0  0  0  1 │  1858996/1085517  -5920514/3256551    375245/361839   -14683565/3256551  │
+        └                                                                                       ┘
+```
+
+## Credits
+The MatrixDisplayer module was written by Valerian Coelho.
+This program was developed by Valerian Coelho. It uses the MatrixDisplayer Library, which were developed by the same author.
+
+## License
+This program is licensed under the MIT License.
