@@ -20,7 +20,9 @@ If a zero is encountered on the diagonal of the matrix, the program will ask if 
 The program uses a custom MatrixDisplayer module that prints matrices in a more visually appealing way.
 
 ## Examples
-### Single Matrix
+<details>
+  <summary>Single Matrix</summary>
+  
 **Input:**
 ```
 Enter the number of matrices : 1
@@ -64,7 +66,6 @@ Enter the Element in the Matrix :
 8
 81
 ```
-
 **Output:**
 ```
 Solution :-
@@ -185,8 +186,10 @@ A = │ 0  0  1  0  0  0 │
     │ 0  0  0  0  0  1 │
     └                  ┘
 ```
----
-### Double Matrix (Augmented Matrix)
+</details>
+<details>
+  <summary>Double Matrix (Augmented Matrix)</summary>
+  
 **Input:**
 ```
 Enter the number of matrices : 2
@@ -297,6 +300,8 @@ Matrix in Echelon Form :-
         │ 0  0  0  1 │  1858996/1085517  -5920514/3256551    375245/361839   -14683565/3256551  │
         └                                                                                       ┘
 ```
+
+</details>
 
 ## Credits
 The MatrixDisplayer module was written by Valerian Coelho.
