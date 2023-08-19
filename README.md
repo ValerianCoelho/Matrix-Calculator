@@ -304,8 +304,7 @@ Matrix in Echelon Form :-
 </details>
 
 ## Credits
-The MatrixDisplayer module was written by Valerian Coelho.
-This program was developed by Valerian Coelho. It uses the MatrixDisplayer Library, which were developed by the same author.
+This program was developed by Valerian Coelho
 
 ## License
 This program is licensed under the MIT License.
